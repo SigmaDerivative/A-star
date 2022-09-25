@@ -229,6 +229,13 @@ class Map_Obj():
             str_value = ' : '
         elif value == 4:
             str_value = ' ; '
+        # add new values to make path visualization
+        elif value == 5:
+            str_value = ' £ '
+        elif value == 6:
+            str_value = ' $ '
+        elif value == 7:
+            str_value = ' € '
         else:
             str_value = str(value)
         self.int_map[pos[0]][pos[1]] = value
@@ -338,6 +345,10 @@ class Map_Obj():
             ' , ': (166, 166, 166),  # lightgrey
             ' : ': (96, 96, 96),   # darkgrey
             ' ; ': (36, 36, 36),   # blackish
+            # add new colors
+            ' £ ': (102, 255, 102),   # lightgreen
+            ' $ ': (0, 102, 0),   # darkgreen
+            ' € ': (255, 255, 0),   # yellow
             ' S ': (255, 0, 255),  # magenta
             ' G ': (0, 128, 255)   # cyan
         }
