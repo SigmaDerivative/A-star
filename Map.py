@@ -229,13 +229,6 @@ class Map_Obj():
             str_value = ' : '
         elif value == 4:
             str_value = ' ; '
-        # add new values to make path visualization
-        elif value == 5:
-            str_value = ' £ '
-        elif value == 6:
-            str_value = ' $ '
-        elif value == 7:
-            str_value = ' € '
         else:
             str_value = str(value)
         self.int_map[pos[0]][pos[1]] = value
@@ -309,8 +302,8 @@ class Map_Obj():
         else:
             themap[goal_pos[0]][goal_pos[1]] = ' G '
 
-    def show_map(self, themap: Union[np.ndarray, str] = None):
-        """Draws `themap` as an image and shows it.
+    def map(self, themap: Union[np.ndarray, str] = None):
+        """Draws `themap` as an image and returns it.
 
         Parameters
         ----------
@@ -361,5 +354,11 @@ class Map_Obj():
                     for j in range(scale):
                         pixels[x * scale + i,
                                y * scale + j] = colors[themap[y][x]]
-        # Show image
-        image.show()
+        # return image
+        return image
+
+    def show_map(self):
+        self.map().show()
+
+    def save_map(self, path):
+        self.map().save(path)
